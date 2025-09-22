@@ -8,6 +8,20 @@
   <meta name="description" content="Find and book Panchakarma therapies at certified Ayurveda centers." />
   <meta name="author" content="Ayusutra" />
 
+  <!-- This is the new script that handles the redirect from 404.html -->
+  <script type="text/javascript">
+    (function() {
+      var redirectPath = sessionStorage.getItem('redirectPath');
+      if (redirectPath) {
+        sessionStorage.removeItem('redirectPath');
+        var newPath = '/TEAM-ICEBERG-SIH2025-ayusutra-SIH' + redirectPath.substring(window.location.pathname.length);
+        if (newPath !== '/TEAM-ICEBERG-SIH2025-ayusutra-SIH/') {
+            window.history.replaceState(null, null, newPath);
+        }
+      }
+    })();
+  </script>
+
   <!-- Optional: You can update these social media preview images later -->
   <meta property="og:title" content="Ayusutra Harmony Flow" />
   <meta property="og:description" content="Find and book Panchakarma therapies at certified Ayurveda centers." />
@@ -24,3 +38,4 @@
   <div id="root"></div>
 </body>
 </html>
+
